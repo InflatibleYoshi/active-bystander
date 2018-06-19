@@ -18,5 +18,4 @@ abstract participant Person identified by participantKey {
   o String participantKey
   o String firstName optional
   o String lastName optional
-  o String 
 }
