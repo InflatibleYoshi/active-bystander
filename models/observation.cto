@@ -5,7 +5,8 @@ import composer.identity.Sketch
 import composer.identity.Location
 import composer.dispatcher.Dispatcher
 
-participant Bystander extends Person {
+participant Bystander identified by phoneNumber extends Person {
+  o String phoneNumber
   o Double reliabilityScore
   o Location myLocation
 }

@@ -24,10 +24,9 @@ abstract participant Sketch {
   o String[] otherDetails optional
 }
 
-abstract participant Person identified by phoneNumber {
+abstract participant Person {
   o String firstName
   o String lastName
-  o String phoneNumber
   o DateTime dateOfBirth
   --> Sketch description
 }

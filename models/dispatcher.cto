@@ -1,10 +1,37 @@
 namespace composer.dispatcher
 
 import composer.identity.Address
+import composer.identity.Person
 import composer.identity.Location
+import composer.observation.Observation
 
-participant Dispatcher identified by stringLocation {
+participant Dispatcher identified by disId {
+  o String disId
   o Address address
-  o String stringLocation
-  o Location dispatchLocation
+}
+
+asset FirstResponder identified by frId{
+  o String frId
+  o ResponderType type
+  o Location currentLocation
+}
+
+transaction Request extends Observation {
+  o FirstResponder[] unitsDispatched
+}
+
+transaction RequestBackup extends Request {
+  o FirstResponder[] unitsNeeded
+}
+
+transaction RequestCompleted extends Request{
+  o Person[] involvedParties
+}
+
+
+enum ResponderType{
+  o POLICE
+  o FIRE
+  o MEDICAL
+  o MILITARY
 }
