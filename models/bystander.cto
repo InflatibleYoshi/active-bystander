@@ -1,0 +1,20 @@
+namespace composer.bystander
+
+import composer.identity.Person
+import composer.identity.Sketch
+
+participant Bystander extends Person {
+  o Double reliabilityScore
+}
+
+transaction Observation {
+  --> Bystander bystander
+  o Location MyLocation
+  o Location ObsLocation
+  --> Sketch[] involved
+}
+
+concept Location {
+  o Double latitude
+  o Double longitude
+}
