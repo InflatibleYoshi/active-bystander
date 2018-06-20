@@ -1,0 +1,10 @@
+namespace composer.dispatcher
+
+import composer.identity.Address
+import composer.identity.Location
+
+participant Dispatcher identified by stringLocation {
+  o Address address
+  o String stringLocation
+  o Location dispatchLocation
+}

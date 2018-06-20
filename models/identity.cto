@@ -33,16 +33,34 @@ abstract participant Person identified by phoneNumber {
 }
 
 enum Nationality{
-  o WHITE
-  o BLACK
+  o CAUCASIAN
+  o EASTERN_EUROPEAN
+  o AFRICAN
   o HISPANIC
-  o ASIAN_EASTERN
+  o ASIAN
   o MIDDLE_EASTERN
   o ASIAN_INDIAN
+  o PACIFIC_ISLANDER
 }
 
 enum Gender{
   o MALE
   o FEMALE
   o OTHER  
+}
+
+concept Address {
+  o String streetNumber optional
+  o String addressLine1 optional
+  o String addressLine2 optional
+  o String addressLine3 optional
+  o String city optional
+  o String country optional
+  o String postalCode optional
+  o String postOfficeBoxNumber optional
+}
+
+concept Location{
+  o Double latitude
+  o Double longitude
 }

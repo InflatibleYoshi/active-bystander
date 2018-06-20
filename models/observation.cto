@@ -1,0 +1,31 @@
+namespace composer.observation
+
+import composer.identity.Person
+import composer.identity.Sketch
+import composer.identity.Location
+import composer.dispatcher.Dispatcher
+
+participant Bystander extends Person {
+  o Double reliabilityScore
+  o Location myLocation
+}
+
+transaction Observation {
+  --> Bystander bystander
+  --> Dispatcher dispatcher
+  o Offense offense
+  o Location obsLocation
+  --> Sketch[] sketchesInvolved optional
+  --> Person[] personsInvolved optional
+}
+
+concept Offense{
+  o Severity severity
+  o String[] Description
+}
+
+enum Severity{
+  o CONCERN
+  o AGGRESSION
+  o EMERGENCY
+}
